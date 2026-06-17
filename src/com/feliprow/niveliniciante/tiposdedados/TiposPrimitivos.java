@@ -36,6 +36,23 @@ public class TiposPrimitivos {
         System.out.println(floatNumeroMaximo);
         System.out.println(floatNumeroAleatorio);
 
+//        ------------ concatenação & prints ------------
+
+        int idade = 17;
+        double altura = 1.64;
+        char inicial = 'N'; // Case sensitive
+        boolean vivoOuMorto = true;
+        Long saldoBancario = 2123921311212L; // O certo seria usar OBJ BigDecimal!
+
+//      Printando e usanco concatenação
+
+        System.out.println(idade);
+        System.out.println(altura);
+        System.out.println(saldoBancario);
+        System.out.println("-------");
+        System.out.println("Saldo bancário: " + saldoBancario);
+        System.out.printf("Mostrando long com %% via printf %d\n", saldoBancario);
+        System.out.printf("mostrando altura com %%.3f %.3f =>", altura);
 
     }
 }
