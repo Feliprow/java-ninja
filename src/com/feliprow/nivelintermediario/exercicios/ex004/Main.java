@@ -10,13 +10,17 @@ public class Main {
         System.out.println("Iniciando sistema");
         Sistema sistema = new Sistema();
 
+
+
         String menu = """
                 
                 [1] - Listar ninjas
                 [2] - Adicionar ninja
                 [3] - Remover ninja
                 [4] - Buscar ninjas
-                [5] - Encerrar
+                [5] - Organizar
+                [6] - Acessar por posição
+                [7] - Encerrar
                 
                 Digite sua opção:""";
 
@@ -55,10 +59,23 @@ public class Main {
                     } else sistema.buscar(busca);
 
                 }
-                case 5 -> System.out.println("Programa encerrado.");
+                case 5 -> {
+                    System.out.println("""
+                        [1] - Organizar alfabeticamente
+                        [2] - Organizar alfabeticamente (decrescente)
+                        [3] - Organizar idade
+                        [4] - Organizar idade (decrescente)
+                        """);
+                    sistema.ordenar(Integer.parseInt(teclado.nextLine()));
+                }
+                case 6 -> {
+                    System.out.println("Digite a posição:");
+                    sistema.acessarPorPosicao(Integer.parseInt(teclado.nextLine()));
+                }
+                case 7 -> System.out.println("Programa encerrado.");
                 default -> System.out.println("Opção inválida.");
             }
-        } while (opcao != 5);
+        } while (opcao != 7);
 
     }
 }

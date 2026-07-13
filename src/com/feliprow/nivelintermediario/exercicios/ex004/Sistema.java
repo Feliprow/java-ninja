@@ -1,6 +1,6 @@
 package com.feliprow.nivelintermediario.exercicios.ex004;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public final class Sistema {
 
@@ -27,9 +27,9 @@ public final class Sistema {
      * Remove o head
      */
     public void removerHead() {
-        if (ninjas.isEmpty()){
+        if (ninjas.isEmpty()) {
             System.out.println("Lista vazia.");
-        }else {
+        } else {
             ninjas.removeFirst();
         }
     }
@@ -46,7 +46,7 @@ public final class Sistema {
      *
      */
     public void listar() {
-        if (ninjas.isEmpty()){
+        if (ninjas.isEmpty()) {
             System.out.println("A lista está vazia.");
             return;
         }
@@ -76,7 +76,7 @@ public final class Sistema {
         if (resultadoBusca == 0) {
             System.out.println("Nenhum ninja correspondente");
         } else {
-            System.out.printf("Foram achados (%d) resultados.\n",  resultadoBusca );
+            System.out.printf("Foram achados (%d) resultados.\n", resultadoBusca);
         }
     }
 
@@ -98,7 +98,35 @@ public final class Sistema {
         if (resultadoBusca == 0) {
             System.out.println("Nenhum ninja correspondente");
         } else {
-            System.out.printf("Foram achados (%d) resultados.\n",  resultadoBusca );
+            System.out.printf("Foram achados (%d) resultados.\n", resultadoBusca);
         }
+    }
+
+    /**
+     * Reordena a lista*/
+    public void ordenar(int opcao) {
+        switch (opcao) {
+            case 1 -> {
+                System.out.println("Organizado A - Z");
+                ninjas.sort(Comparator.comparing(Ninja::getNome));
+            }
+            case 2 -> {
+                System.out.println("Organizado Z - A");
+                ninjas.sort(Comparator.comparing(Ninja::getNome).reversed());
+            }
+            case 3 -> {
+                System.out.println("Organizado crescente");
+                ninjas.sort(Comparator.comparingInt(Ninja::getIdade));
+            }
+            case 4 -> {
+                System.out.println("Organizado decrescente");
+                ninjas.sort(Comparator.comparingInt(Ninja::getIdade).reversed());
+            }
+            default -> System.out.println("Opção inválida");
+        }
+    }
+
+    public void acessarPorPosicao(int indice){
+        System.out.println(ninjas.get(indice));
     }
 }
